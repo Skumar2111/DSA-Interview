@@ -28,14 +28,42 @@ public class LLOperations {
         }
     }
 
+
+    public void append(int data)
+    {
+        Node newNode = new Node(data);
+
+        if(head == null)
+        {
+            head = new Node(data);
+            return;
+        }
+
+        //Since new node is last
+        newNode.next = null;
+
+        Node last = head;
+
+        while(last.next != null)
+        {
+            last = last.next;
+        }
+
+        last.next = newNode;
+
+        return;
+    }
+
     public static void main(String[] args) {
         LLOperations llOperations = new LLOperations();
         llOperations.push(10);
         llOperations.push(20);
         llOperations.push(30);
 
-
         llOperations.printLL(llOperations.head);
 
+        llOperations.append(40);
+
+        llOperations.printLL(llOperations.head);
     }
 }
