@@ -43,6 +43,67 @@ public class DeleteFromList {
       return head.next;
     }
 
+    public Node removeLast(Node head)
+    {
+        if(head == null || head.next == null)
+        {
+            return null;
+        }
+        Node to_delete = head.next;
+        Node prev_to_delete = head;
+
+        while(to_delete.next != null)
+        {
+            prev_to_delete = prev_to_delete.next;
+            to_delete = to_delete.next;
+        }
+
+        prev_to_delete.next = null;
+
+        return head;
+    }
+
+
+    public Node removeFromLocation(Node head, int index)
+    {
+        Node current = head;
+        Node previous = null;
+
+        int count = 1;
+
+        if(head == null)
+        {
+            return null;
+        }
+        else if(index == 1)
+        {
+            head = head.next;
+            return head;
+        }
+
+        while(count < index)
+        {
+            count++;
+
+            if(current != null && count == index)
+            {
+               previous = current;
+               current = current.next;
+               count++;
+            }
+
+            if(current == null)
+            {
+                return head;
+            }
+        }
+
+        previous.next = current.next;
+
+        return head;
+    }
+
+
     public static void main(String[] args) {
 
         DeleteFromList deleteFromList = new DeleteFromList();
@@ -60,8 +121,14 @@ public class DeleteFromList {
         System.out.println("After remove");
         deleteFromList.printLinkedList(head);
 
+        System.out.println("After remove Last");
+        head = deleteFromList.removeLast(head);
+        deleteFromList.printLinkedList(head);
 
+        head = deleteFromList.removeFromLocation(head,3);
 
+        System.out.println("Last list");
+        deleteFromList.printLinkedList(head);
 
 
 
