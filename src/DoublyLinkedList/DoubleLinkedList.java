@@ -40,6 +40,34 @@ public class DoubleLinkedList {
             return head;
         }
 
+
+        public DLLNode addAtEnd(int data)
+        {
+            DLLNode dllNode = new DLLNode(data);
+
+
+
+            if(head == null)
+            {
+                head = dllNode;
+                return head;
+            }
+
+            DLLNode tracking = head;
+            while(tracking.next != null)
+            {
+                tracking = tracking.next;
+            }
+
+            tracking.next = dllNode;
+            dllNode.previous = tracking;
+
+            return head;
+
+
+
+        }
+
         public void printDLL(DLLNode head) {
 
         DLLNode node = head;
@@ -63,10 +91,17 @@ public class DoubleLinkedList {
             doubleLinkedList.addAtStart(20);
             doubleLinkedList.addAtStart(30);
 
-
+            System.out.println("Post Add at Start");
             doubleLinkedList.printDLL(doubleLinkedList.head);
 
 
+
+            System.out.println("Post Add at End");
+            doubleLinkedList.addAtEnd(30);
+            doubleLinkedList.addAtEnd(40);
+            doubleLinkedList.addAtEnd(50);
+
+            doubleLinkedList.printDLL(doubleLinkedList.head);
         }
 
 
