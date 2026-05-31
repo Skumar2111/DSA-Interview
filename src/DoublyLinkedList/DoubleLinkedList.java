@@ -45,8 +45,6 @@ public class DoubleLinkedList {
         {
             DLLNode dllNode = new DLLNode(data);
 
-
-
             if(head == null)
             {
                 head = dllNode;
@@ -58,13 +56,9 @@ public class DoubleLinkedList {
             {
                 tracking = tracking.next;
             }
-
             tracking.next = dllNode;
             dllNode.previous = tracking;
-
             return head;
-
-
 
         }
 
@@ -103,9 +97,6 @@ public class DoubleLinkedList {
 
             doubleLinkedList.printDLL(doubleLinkedList.head);
         }
-
-
-
 
     }
 
