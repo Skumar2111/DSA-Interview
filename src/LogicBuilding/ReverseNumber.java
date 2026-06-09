@@ -14,5 +14,7 @@ public class ReverseNumber {
         }
 
         System.out.println(reverse);
+
+        System.out.println(reverse == n);
     }
 }
