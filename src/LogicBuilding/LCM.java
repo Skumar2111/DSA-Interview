@@ -1,13 +1,13 @@
 package LogicBuilding;
 
-public class GCDOptimal {
+public class LCM {
 
     public static void main(String[] args) {
+        int  a = 5 ; int b = 10;
 
-        int a = 5 ;
-        int b = 20;
+        int lcm = (a * b) / gcd(a,b);
 
-        System.out.println(gcd(a,b));
+        System.out.println(lcm);
     }
 
     private static int gcd(int a, int b) {
@@ -18,8 +18,7 @@ public class GCDOptimal {
         }
         else
         {
-            return gcd(b,a%b);
+            return gcd(b, a%b);
         }
-
     }
 }
