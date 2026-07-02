@@ -48,5 +48,9 @@ public class TestStream2 {
 
         System.out.println("Average");
         System.out.println(list.stream().mapToInt(Integer::intValue).average().orElse(0.0));
+
+
+        System.out.println(list.stream().map((number)-> number+(-5)).collect(Collectors.toList()));
+
     }
 }
