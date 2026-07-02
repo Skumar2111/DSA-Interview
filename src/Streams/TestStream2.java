@@ -45,5 +45,8 @@ public class TestStream2 {
 
         System.out.println("Total Sum");
         System.out.println(list.stream().reduce(0,Integer::sum));
+
+        System.out.println("Average");
+        System.out.println(list.stream().mapToInt(Integer::intValue).average().orElse(0.0));
     }
 }
