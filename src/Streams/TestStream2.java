@@ -80,7 +80,7 @@ public class TestStream2 {
         System.out.println(result);
 
 
-        var leapYear = IntStream.iterate(2000, i -> i <=2026 , i -> i += 1).filter(i -> i % 4 == 0).peek(System.out::println).summaryStatistics();
+        var leapYear = IntStream.iterate(2000, i -> i <=2026 , i -> i += 1).filter(i -> i % 4 == 0).peek(System.out::println).max();
         System.out.println("Leap year details : "+leapYear);
     }
 }
