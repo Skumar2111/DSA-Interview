@@ -3,10 +3,10 @@ package Recursion;
 public class RopeCut {
 
     public static void main(String[] args) {
-        int rope_length = 9;
-        int a = 2;
-        int b = 2;
-        int c = 2;
+        int rope_length = 23;
+        int a = 12;
+        int b = 9;
+        int c = 11;
 
         System.out.println(calculateSum(rope_length,a,b,c));
     }
