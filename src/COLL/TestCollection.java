@@ -1,13 +1,15 @@
 package COLL;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TestCollection {
 
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
 
-        String[] names = {"Sushant","Pooja", "Nishant", "Shalini", "ABC"};
+        String[] names = {"Sushant", "Pooja", "Nishant", "Shalini", "ABC"};
 
         list.addAll(Arrays.asList(names));
 
@@ -15,11 +17,11 @@ public class TestCollection {
 
         System.out.println(list);
 
-        System.out.println("Check if list contains Happy :" +list.contains("Happy"));
+        System.out.println("Check if list contains Happy :" + list.contains("Happy"));
 
         list.removeIf(name -> name.equals("ABC"));
 
-        System.out.println("Check if list contains ABC :" +list.contains("ABC"));
+        System.out.println("Check if list contains ABC :" + list.contains("ABC"));
 
         System.out.println(list);
 
@@ -44,7 +46,7 @@ public class TestCollection {
         LList2.add(30);
 
         LList.retainAll(LList2);
-        System.out.println("Printing Linked List : "+LList);
+        System.out.println("Printing Linked List : " + LList);
 
 
         /*Set*/
@@ -55,7 +57,28 @@ public class TestCollection {
         set.add(12);
         set.add(21);
 
+        Collections.shuffle(list);
         System.out.println(set);
+
+        System.out.println(list);
+
+
+        Map<Integer, String> hMap = new HashMap<>();
+
+        hMap.put(1, "One");
+        hMap.put(2, "two");
+        hMap.put(3, "three");
+        hMap.put(null, "Zero");
+
+
+        hMap.entrySet().stream().forEach(System.out::println);
+
+        Set<Double> setLong = new HashSet<>();
+        setLong = set.stream().map(a -> a.doubleValue()).collect(Collectors.toSet());
+        set.stream().forEach(System.out::println);
+
+        setLong.stream().forEach(System.out::println);
+
 
     }
 
