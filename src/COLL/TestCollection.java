@@ -46,6 +46,17 @@ public class TestCollection {
         LList.retainAll(LList2);
         System.out.println("Printing Linked List : "+LList);
 
+
+        /*Set*/
+
+        Set<Integer> set = new LinkedHashSet<>();
+        set.add(21);
+        set.add(210);
+        set.add(12);
+        set.add(21);
+
+        System.out.println(set);
+
     }
 
 
