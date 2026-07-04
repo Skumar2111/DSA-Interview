@@ -1,13 +1,12 @@
 package COLL;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class TestCollection {
 
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
+
         String[] names = {"Sushant","Pooja", "Nishant", "Shalini", "ABC"};
 
         list.addAll(Arrays.asList(names));
@@ -23,6 +22,29 @@ public class TestCollection {
         System.out.println("Check if list contains ABC :" +list.contains("ABC"));
 
         System.out.println(list);
+
+        Collections.sort(list);
+
+        System.out.println(list);
+
+
+        /*Linked List*/
+        List<Integer> LList = new LinkedList<>();
+        LList.add(10);
+        LList.add(20);
+        LList.add(30);
+        LList.add(40);
+        LList.add(50);
+
+        Collections.reverse(LList);
+
+        List<Integer> LList2 = new LinkedList<>();
+        LList2.add(10);
+        LList2.add(20);
+        LList2.add(30);
+
+        LList.retainAll(LList2);
+        System.out.println("Printing Linked List : "+LList);
 
     }
 
