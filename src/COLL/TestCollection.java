@@ -63,11 +63,11 @@ public class TestCollection {
         System.out.println(list);
 
 
-        Map<Integer, String> hMap = new HashMap<>();
+        Map<Integer, String> hMap = new LinkedHashMap<>();
 
-        hMap.put(1, "One");
+        hMap.put(3, "One");
         hMap.put(2, "two");
-        hMap.put(3, "three");
+        hMap.put(1, "three");
         hMap.put(null, "Zero");
 
 
@@ -80,6 +80,32 @@ public class TestCollection {
         setLong.stream().forEach(System.out::println);
 
 
+        hMap.values().stream().dropWhile(a -> a.equals("Zero")).forEach(System.out::println);
+
+
+        hMap = hMap.entrySet().stream().filter(a -> a.getKey()!=null).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue, ((v1,v2) ->  v1),LinkedHashMap::new));
+
+        hMap.entrySet().stream().forEach(System.out::println);
+
+
+        Collections.sort(hMap.keySet().stream().collect(Collectors.toList()));
+
+        hMap.entrySet().stream().forEach(System.out::println);
+
+
+        hMap.entrySet().removeIf((a)-> a.getKey() == 1);
+        hMap.entrySet().stream().forEach(System.out::println);
+
+
+        System.out.printf(" Clearing up all the data <--------->");
+        hMap.values();
+        list.clear();
+        LList.clear();
+        LList2.clear();
+        set.clear();
+        setLong.clear();
+
+        System.out.println(" \uD83D\uDE00 ");
     }
 
 
