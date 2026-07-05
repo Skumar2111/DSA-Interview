@@ -42,9 +42,8 @@ public class ManageEmployees {
 
         System.out.println(employeeList.get(0));
 
-
-
-
+        employeeList = hashMap.entrySet().stream().flatMap(entry -> entry.getValue().stream()).collect(Collectors.toList());
+        System.out.println(employeeList);
 
     }
 }
