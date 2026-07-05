@@ -34,12 +34,16 @@ public class MainThread {
                 catch(InterruptedException exp)
                 {
                     exp.printStackTrace();
+                    return;
                 }
             }
         };
 
         Thread threadRunnable = new Thread(runnable);
         threadRunnable.start();
+
+        threadRunnable.join();
+
 
 
 
@@ -56,6 +60,7 @@ public class MainThread {
                 e.printStackTrace();
             }
         }
+
 
         System.out.println("Exit from : " +Thread.currentThread());
 
