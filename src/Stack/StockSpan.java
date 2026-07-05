@@ -21,7 +21,7 @@ public class StockSpan {
         int span;
         for(int i = 1 ; i < stocks.length ; i++)
         {
-            while(stack.isEmpty() && stocks[stack.peek()] <= stocks[i])
+            while(!stack.isEmpty() && stocks[stack.peek()] <= stocks[i])
             {
                 stack.pop();
             }
