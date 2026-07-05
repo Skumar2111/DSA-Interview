@@ -6,11 +6,47 @@ public class MainThread {
 
         System.out.println("Working with Thread : " +Thread.currentThread());
 
+        System.out.println(Thread.currentThread().getState());
         Thread.currentThread().setPriority(1);
         Thread.currentThread().setName("Modified Main");
+
+        Thread custom = new Thread(new MyCustom());
+        custom.start();
+
+
+       /* Thread custom = new MyCustom();
+        custom.start();*/
+
+
+        Runnable runnable = () -> {
+            for(int i = 0 ; i < 100 ; i++)
+            {
+                System.out.println(i);
+                try {
+                    Thread.sleep(10);
+                }
+                catch(InterruptedException exp)
+                {
+                    exp.printStackTrace();
+                }
+            }
+        };
+
+        Thread threadRunnable = new Thread(runnable);
+        threadRunnable.start();
+
+
+
         for(int i = 0 ; i < 10 ; i++)
         {
-            System.out.println("Print execution for Number :" +i +" from thread :"+Thread.currentThread());
+            try {
+                System.out.println("Print execution for Number :" + i + " from thread :" + Thread.currentThread());
+                Thread.sleep(100);
+            }
+            catch(InterruptedException e)
+            {
+                e.printStackTrace();
+            }
         }
 
         System.out.println("Exit from : " +Thread.currentThread());
