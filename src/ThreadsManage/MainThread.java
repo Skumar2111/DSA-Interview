@@ -2,7 +2,7 @@ package ThreadsManage;
 
 public class MainThread {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         System.out.println("Working with Thread : " +Thread.currentThread());
 
@@ -10,9 +10,15 @@ public class MainThread {
         Thread.currentThread().setPriority(1);
         Thread.currentThread().setName("Modified Main");
 
+
+
+
+
         Thread custom = new Thread(new MyCustom());
         custom.start();
 
+
+      //  custom.join();
 
        /* Thread custom = new MyCustom();
         custom.start();*/
@@ -34,6 +40,8 @@ public class MainThread {
 
         Thread threadRunnable = new Thread(runnable);
         threadRunnable.start();
+
+
 
 
 
