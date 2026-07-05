@@ -32,6 +32,17 @@ public class ManageEmployees {
         hashMap.entrySet().forEach(System.out::println);
 
 
+        employeeList = employeeList.stream().filter(dept -> !dept.department.equals("RTB")).collect(Collectors.toList());
+
+        System.out.println(employeeList);
+
+
+        System.out.println("Employee with smallest emp id");
+        employeeList = employeeList.stream().sorted(Comparator.comparingInt(a -> a.id)).collect(Collectors.toList());
+
+        System.out.println(employeeList.get(0));
+
+
 
 
 
