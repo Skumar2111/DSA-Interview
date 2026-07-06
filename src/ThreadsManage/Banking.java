@@ -9,7 +9,7 @@ public class Banking {
     }
 
 
-    public synchronized void deposit(int amount)
+    public void deposit(int amount)
     {
         try
         {
@@ -18,10 +18,13 @@ public class Banking {
             e.printStackTrace();
         }
 
-        int originalBalance = balance;
-        balance += amount;
+        synchronized (this) {
+            int originalBalance = balance;
 
-        System.out.printf("Starting Balance: %d , Deposit %d , New Balance %d \n",originalBalance,amount,balance);
+            balance += amount;
+            System.out.printf("Starting Balance: %d , Deposit %d , New Balance %d \n",originalBalance,amount,balance);
+        }
+
     }
 
 
@@ -29,7 +32,7 @@ public class Banking {
         this.balance = balance;
     }
 
-    public synchronized void withdraw(int amount)
+    public void withdraw(int amount)
     {
         try
         {
@@ -38,11 +41,14 @@ public class Banking {
             e.printStackTrace();
         }
 
-        int originalBalance = balance;
-        if(balance > amount)
-        balance -= amount;
 
-        System.out.printf("Starting Balance: %d , Withdraw %d , New Balance %d \n",originalBalance,amount,balance);
+        synchronized (this) {
+            int originalBalance = balance;
+            if (balance > amount)
+                balance -= amount;
+            System.out.printf("Starting Balance: %d , Withdraw %d , New Balance %d \n",originalBalance,amount,balance);
+        }
+
     }
 
 }
