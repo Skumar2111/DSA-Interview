@@ -1,5 +1,8 @@
 package ThreadsManage;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Banking {
 
     private int balance;
@@ -8,6 +11,8 @@ public class Banking {
         return balance;
     }
 
+
+    private final Lock lock = new ReentrantLock();
 
     public void deposit(int amount)
     {
@@ -18,11 +23,14 @@ public class Banking {
             e.printStackTrace();
         }
 
-        synchronized (this) {
+        lock.lock();
+        try {
             int originalBalance = balance;
 
             balance += amount;
-            System.out.printf("Starting Balance: %d , Deposit %d , New Balance %d \n",originalBalance,amount,balance);
+            System.out.printf("Starting Balance: %d , Deposit %d , New Balance %d \n", originalBalance, amount, balance);
+        } finally {
+            lock.unlock();
         }
 
     }
@@ -41,12 +49,14 @@ public class Banking {
             e.printStackTrace();
         }
 
-
-        synchronized (this) {
+        lock.lock();
+        try {
             int originalBalance = balance;
             if (balance > amount)
                 balance -= amount;
-            System.out.printf("Starting Balance: %d , Withdraw %d , New Balance %d \n",originalBalance,amount,balance);
+            System.out.printf("Starting Balance: %d , Withdraw %d , New Balance %d \n", originalBalance, amount, balance);
+        } finally {
+            lock.unlock();
         }
 
     }
