@@ -27,6 +27,9 @@ public class Executors {
             }
         };
 
+        Banking banking = new Banking(1000);
+        multiExecutors.execute(() -> banking.deposit(1000));
+        multiExecutors.execute(() -> banking.withdraw(200));
 
         //executors.execute(runnable);
 
