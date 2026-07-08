@@ -9,6 +9,8 @@ public class Executors {
         var executors = java.util.concurrent.Executors.newSingleThreadExecutor();
 
         var multiExecutors = java.util.concurrent.Executors.newFixedThreadPool(3);
+
+        var cachedExecutors = java.util.concurrent.Executors.newCachedThreadPool();
         Runnable runnable = () ->
         {
             for(int i = 0 ; i < 50 ; i++)
@@ -31,12 +33,32 @@ public class Executors {
         multiExecutors.execute(() -> banking.deposit(1000));
         multiExecutors.execute(() -> banking.withdraw(200));
 
-        //executors.execute(runnable);
+        executors.execute(CountingDown::countDown);
 
         multiExecutors.execute(runnable);
         multiExecutors.execute(runnable2);
 
+        for(int count = 0 ; count < 5 ; count++) {
+            System.out.println("From count" +count);
+            cachedExecutors.execute(CountingDown::countDown);
+        }
+
         executors.shutdown();
         multiExecutors.shutdown();
+        cachedExecutors.shutdown();
+
+    }
+}
+
+class CountingDown
+{
+    public static void countDown()
+    {
+        System.out.println("Call is from CountDown");
+        for(int i = 0 ; i < 20 ; i++)
+        {
+            System.out.println(i + " from thread " +Thread.currentThread());
+        }
+
     }
 }
