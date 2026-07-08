@@ -1,6 +1,7 @@
 package ThreadsManage;
 
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class Executors {
 
@@ -11,6 +12,8 @@ public class Executors {
         var multiExecutors = java.util.concurrent.Executors.newFixedThreadPool(3);
 
         var cachedExecutors = java.util.concurrent.Executors.newCachedThreadPool();
+
+        var scheduledPool = java.util.concurrent.Executors.newScheduledThreadPool(2);
         Runnable runnable = () ->
         {
             for(int i = 0 ; i < 50 ; i++)
@@ -38,14 +41,18 @@ public class Executors {
         multiExecutors.execute(runnable);
         multiExecutors.execute(runnable2);
 
+
         for(int count = 0 ; count < 5 ; count++) {
             System.out.println("From count" +count);
             cachedExecutors.execute(CountingDown::countDown);
         }
 
+        scheduledPool.schedule(runnable,10, TimeUnit.SECONDS);
         executors.shutdown();
         multiExecutors.shutdown();
         cachedExecutors.shutdown();
+
+        scheduledPool.shutdown();
 
     }
 }
