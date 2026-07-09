@@ -1,7 +1,10 @@
 package ThreadsManage;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.Executors;
+import java.util.stream.IntStream;
 
 public class ExecutorsNew {
 
@@ -27,5 +30,11 @@ public class ExecutorsNew {
         }
 
         executor.shutdown();
+
+
+        List<Integer> list = IntStream.rangeClosed(0,50).boxed().toList();
+
+        list.parallelStream().forEach(i -> System.out.println(i + " printing for " +Thread.currentThread()));
+
     }
 }
