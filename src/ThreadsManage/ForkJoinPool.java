@@ -40,7 +40,7 @@ public class ForkJoinPool {
 
                 return taskSum;
             });
-
+        }
 
             try {
                 List<Future<Long>> futures = threadPool.invokeAll(tasks);
@@ -49,19 +49,24 @@ public class ForkJoinPool {
                     taskSum += future.get();
                 }
                 System.out.println("Sum is : " +taskSum + " from thread" +Thread.currentThread());
+
+                threadPool.shutdown();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             }
+
+
+        System.out.println(Thread.currentThread());
         }
 
 
-            threadPool.shutdown();
+
 
 
 
 
 
     }
-}
+
