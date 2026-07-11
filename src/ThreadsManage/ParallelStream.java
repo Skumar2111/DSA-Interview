@@ -46,7 +46,7 @@ public class ParallelStream {
         int sumWithParallel = IntStream.range(0,1000).parallel().reduce(0,Integer::sum);
         System.out.println("Sum with parallel "+sumWithParallel);
 
-        Map<String, Long> lastNameCount = Collections.synchronizedMap(new HashMap<>());
+        Map<String, Long> lastNameCount = Collections.synchronizedMap(new TreeMap<String,Long>());
 
         lastNameCount = Stream.generate(Person::new).limit(10000).parallel().collect(Collectors.groupingByConcurrent(Person::firstName,Collectors.counting()));
 
@@ -54,6 +54,8 @@ public class ParallelStream {
         lastNameCount.entrySet().stream().forEach(System.out::println);
 
         System.out.println(lastNameCount.getClass().getName());
+
+
 
 
 
