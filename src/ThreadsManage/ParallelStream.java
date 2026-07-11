@@ -1,6 +1,7 @@
 package ThreadsManage;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -46,7 +47,9 @@ public class ParallelStream {
         int sumWithParallel = IntStream.range(0,1000).parallel().reduce(0,Integer::sum);
         System.out.println("Sum with parallel "+sumWithParallel);
 
-        Map<String, Long> lastNameCount = Collections.synchronizedMap(new TreeMap<String,Long>());
+       // Map<String, Long> lastNameCount = Collections.synchronizedMap(new TreeMap<String,Long>());
+
+        Map<String, Long> lastNameCount = new ConcurrentSkipListMap<String,Long>();
 
         lastNameCount = Stream.generate(Person::new).limit(10000).parallel().collect(Collectors.groupingByConcurrent(Person::firstName,Collectors.counting()));
 
