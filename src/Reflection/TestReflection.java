@@ -18,11 +18,18 @@ public class TestReflection {
             Method method = classObj.getDeclaredMethod("setRoll_number",Integer.class);
 
             Method setNameMethod = classObj.getDeclaredMethod("setName",String.class);
-
             setNameMethod.setAccessible(true);
+
+            Method processStudent = classObj.getDeclaredMethod("processStudent");
+
 
             setNameMethod.invoke(student,"Sush");
             method.invoke(student,10);
+            String myProcess = (String) processStudent.invoke(student);
+
+
+
+
 
             for(int i = 0 ; i < methods.length ; i++)
             {
@@ -31,6 +38,8 @@ public class TestReflection {
             }
             System.out.println("\n\n\n");
             System.out.println("After the reflection" +student);
+
+            System.out.println("Printing process result  : " +myProcess);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
@@ -76,6 +85,12 @@ class Student
     public void setRoll_number(Integer roll_number) {
         System.out.println("I am setting roll number : " +roll_number);
         this.roll_number = roll_number;
+    }
+
+
+    public String processStudent()
+    {
+        return this.name+" - "+this.roll_number;
     }
 
     @Override
