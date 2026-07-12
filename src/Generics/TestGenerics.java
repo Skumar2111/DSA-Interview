@@ -19,7 +19,6 @@ public class TestGenerics {
         System.out.println("Integer boxed value : "+insideBox.getValue());
         System.out.println("String boxed value : "+insideStringBox.getValue());
 
-
     }
 }
 
