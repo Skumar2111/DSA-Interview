@@ -5,8 +5,8 @@ public class TestGenerics {
 
     public static void main(String[] args) {
 
-        Box<Integer> insideBox = new Box<>();
-        insideBox.setValue(10);
+        Box<String> insideBox = new Box<>();
+        insideBox.setValue("String");
 
         BoxPair<Integer,Integer> boxPair = new BoxPair<>(10,10);
 
@@ -24,7 +24,7 @@ public class TestGenerics {
 }
 
 
-class Box<T>
+class Box<T extends String>
 {
     T value;
 
