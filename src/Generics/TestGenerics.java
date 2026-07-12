@@ -8,6 +8,11 @@ public class TestGenerics {
         Box<Integer> insideBox = new Box<>();
         insideBox.setValue(10);
 
+        BoxPair<Integer,Integer> boxPair = new BoxPair<>(10,10);
+
+        System.out.println("Box pair key : " +boxPair.getKey());
+        System.out.println("Box pair value :" +boxPair.getValue());
+
         Box<String> insideStringBox = new Box<>();
         insideStringBox.setValue("Sushant");
 
@@ -32,4 +37,25 @@ class Box<T>
         return value;
     }
 
+}
+
+
+
+class BoxPair<K,V>
+{
+    K key;
+    V value;
+
+    public BoxPair(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public K getKey() {
+        return key;
+    }
+
+    public V getValue() {
+        return value;
+    }
 }
