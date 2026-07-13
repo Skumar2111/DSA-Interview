@@ -1,5 +1,7 @@
 package ExceptionHandling;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,6 +17,21 @@ public class HandlingExcpetions {
 
         try {
             List<String> list = Files.readAllLines(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        testFile(path);
+    }
+
+    private static void testFile(Path path) {
+
+
+        try (FileReader reader = new FileReader(path.getFileName().toString()))
+        {
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
