@@ -8,27 +8,34 @@ import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 public class ManageStudent {
 
     public static void main(String[] args) {
 
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\Susha\\Downloads\\student_registrations_1000.csv"));
+        var myExecutor = Executors.newFixedThreadPool(3);
 
 
-            List<Student> students = bufferedReader.lines().skip(1).map(line -> {
-                String[]  data = line.split(",");
 
-                return new Student(
-                        data[0],
-                        data[1],
-                        data[2],
-                        data[3],
-                        Date.valueOf(data[4]),
-                        data[5],
-                        data[6],
+
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\Susha\\Downloads\\student_registrations_1000.csv"));
+
+
+                List<Student> students = bufferedReader.lines().skip(1).map(line -> {
+                    String[]  data = line.split(",");
+
+                    return new Student(
+                            data[0],
+                            data[1],
+                            data[2],
+                            data[3],
+                            Date.valueOf(data[4]),
+                            data[5],
+                            data[6],
                         Integer.parseInt(data[7]),
                         data[8],
                         Date.valueOf(data[9]),
@@ -50,8 +57,6 @@ public class ManageStudent {
            hStudents.entrySet().stream().dropWhile(a -> a.getKey() != 10);
 
             hStudents.entrySet().stream().forEach(System.out::println);
-
-
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
