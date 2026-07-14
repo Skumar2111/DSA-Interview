@@ -47,6 +47,8 @@ public class ManageStudent {
             /*Map by Class*/
             Map<Integer,List<Student>> hStudents = students.stream().collect(Collectors.groupingBy((a) -> a.grade));
 
+           hStudents.entrySet().stream().dropWhile(a -> a.getKey() != 10);
+
             hStudents.entrySet().stream().forEach(System.out::println);
 
 
