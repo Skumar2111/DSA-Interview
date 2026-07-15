@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class CarReflection {
 
@@ -13,12 +15,15 @@ public class CarReflection {
 
         var executor = Executors.newFixedThreadPool(2);
 
+        Lock lock = new ReentrantLock();
+
         Runnable runnable = () ->
         {
             try {
                 Class<?> carClass = Class.forName("Reflection.Car");
                 Method[] methods = carClass.getMethods();
 
+                lock.tryLock();
                 Car car = (Car) carClass.getConstructor(String.class,Integer.class).newInstance("Creta",1000);
 
                 Method getCar = carClass.getDeclaredMethod("getCar");
@@ -28,6 +33,8 @@ public class CarReflection {
                 System.out.println("Car details : "+carDetails);
 
                 System.out.println("From Thread :" + Thread.currentThread());
+
+
 
 
             } catch (ClassNotFoundException e) {
@@ -49,6 +56,7 @@ public class CarReflection {
                 Class<?> carClass = Class.forName("Reflection.Car");
                 Method[] methods = carClass.getMethods();
 
+                lock.tryLock();
                 Car car = (Car) carClass.getConstructor(String.class,Integer.class).newInstance("Toyota",1500);
 
                 Method getCar = carClass.getDeclaredMethod("getCar");
@@ -58,7 +66,7 @@ public class CarReflection {
                 System.out.println("Car details : "+carDetails);
                 System.out.println("From Thread :" + Thread.currentThread());
 
-
+                lock.unlock();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e) {
