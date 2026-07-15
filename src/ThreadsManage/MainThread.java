@@ -18,6 +18,8 @@ public class MainThread {
         custom.start();
 
 
+        /*Below is thread creation using extends Thread*/
+
       //  custom.join();
 
        /* Thread custom = new MyCustom();
