@@ -20,6 +20,8 @@ public class Client {
             String requestString;
             String responseString;
 
+
+
             do
             {
                 System.out.println("Enter String");
