@@ -1,38 +1,74 @@
 package manageSports;
 
+import java.io.BufferedReader;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 public class SetupMySports {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ClassNotFoundException {
 
-        Sports cricket = new Cricket();
+        Scanner scanner = new Scanner(System.in);
 
-        Runnable runnable = (() ->
-        {
-            System.out.println(cricket.getPracticeInputs());
+        var executors = Executors.newFixedThreadPool(2);
 
-            System.out.println(cricket.getSportsDescription());
+        System.out.println("Enter sports you want to check details for :");
 
-            System.out.println(cricket.rate());
+        String sports = scanner.nextLine();
 
-        });
+        Class<?> singleObject = Class.forName("manageSports." + sports);
+
+        try {
+            Object createdSingle = singleObject.getConstructor().newInstance();
+            List<String> myList = new ArrayList<>();
+
+            Callable<?> callable = (() ->
+            {
+                Method[] methods = singleObject.getDeclaredMethods();
+
+                Arrays.stream(methods).forEach((a) -> {
+                    try {
+                        String myResult = String.valueOf(a.invoke(createdSingle));
+                        myList.add(myResult);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
 
 
-        Sports soccer = new Soccer();
+                });
 
-        Runnable mySoccerRunnable = (() ->
-        {
-            System.out.println(soccer.getPracticeInputs());
-            System.out.println(soccer.getSportsDescription());
-            System.out.println(soccer.rate());
-        });
 
-        Thread tFactory = new Thread(runnable);
-        tFactory.start();
+                return myList;
+            });
 
-        tFactory.join();
+            Future<?> future = executors.submit(callable);
+            System.out.println(future.get());
 
-        Thread soccerFactory = new Thread(mySoccerRunnable);
-        soccerFactory.start();
 
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Closing executors");
+        executors.shutdown();
     }
+
 }
