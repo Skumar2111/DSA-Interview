@@ -2,7 +2,7 @@ package manageSports;
 
 public class SetupMySports {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Sports cricket = new Cricket();
 
@@ -16,8 +16,23 @@ public class SetupMySports {
 
         });
 
+
+        Sports soccer = new Soccer();
+
+        Runnable mySoccerRunnable = (() ->
+        {
+            System.out.println(soccer.getPracticeInputs());
+            System.out.println(soccer.getSportsDescription());
+            System.out.println(soccer.rate());
+        });
+
         Thread tFactory = new Thread(runnable);
         tFactory.start();
+
+        tFactory.join();
+
+        Thread soccerFactory = new Thread(mySoccerRunnable);
+        soccerFactory.start();
 
     }
 }
