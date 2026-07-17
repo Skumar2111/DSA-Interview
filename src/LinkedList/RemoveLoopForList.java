@@ -1,6 +1,8 @@
 package LinkedList;
 
 
+import java.util.Stack;
+
 class Node {
     int data;
     Node next;
@@ -18,6 +20,7 @@ class RemoveLoopForList {
         Node node_2 = new Node(30);
         Node node_3 = new Node(40);
 
+        Stack<Integer> stack;
 
 
     }
