@@ -20,7 +20,7 @@ public class MergeSort {
             sorting(array,left,mid);
             sorting(array,mid+1,right);
 
-            merge(array,left,right,mid);
+            merge(array,left,mid,right);
 
 
 
@@ -28,7 +28,7 @@ public class MergeSort {
 
     }
 
-    private static void merge(int[] array, int left, int right, int mid) {
+    private static void merge(int[] array, int left, int mid, int right) {
 
         int n1 = mid - left + 1;
         int n2 = right - mid;
