@@ -5,9 +5,13 @@ public class MergeSort {
     public static void main(String[] args) {
         int[] array = {38,27,43,39,9,82,10};
         int left = 0;
-        int right = array.length;
+        int right = array.length -1;
         sorting(array,left,right);
 
+        for(int i = 0 ; i < array.length; i++)
+        {
+            System.out.println(array[i]);
+        }
 
     }
 
@@ -15,14 +19,12 @@ public class MergeSort {
 
         if(left < right)
         {
-            int mid = left + (right -left )/2;
+            int mid = (left + right)/2;
 
             sorting(array,left,mid);
             sorting(array,mid+1,right);
 
             merge(array,left,mid,right);
-
-
 
         }
 
@@ -36,7 +38,7 @@ public class MergeSort {
         int[] L = new int[n1];
         int[] R = new int[n2];
 
-        for(int i = 0 ; i < n1; i++)
+        for(int i = 0 ; i < n1; ++i)
         {
             L[i] = array[left + i];
         }
@@ -52,7 +54,7 @@ public class MergeSort {
 
         while(i < n1 && j < n2)
         {
-            if(L[i] < R[j])
+            if(L[i] <= R[j])
             {
                 array[k] = L[i];
                 i++;
@@ -68,7 +70,7 @@ public class MergeSort {
 
         while(i <n1)
         {
-            array[k] = array[i];
+            array[k] = L[i];
             i++;
             k++;
         }
