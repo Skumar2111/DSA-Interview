@@ -8,9 +8,9 @@ public class MatrixTest
 
         for(int i = 0 ; i < 3 ; i++)
         {
-            for(int j = 0 ; j+1 < 5; j++)
+            for(int j = 0 ; j < 5; j++)
             {
-                matrix[i][j] = i * i;
+                matrix[i][j] = i + j;
             }
         }
 
