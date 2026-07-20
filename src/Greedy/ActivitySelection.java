@@ -36,7 +36,6 @@ public class ActivitySelection {
         System.out.println(count);
         return;
 
-
     }
 }
 
