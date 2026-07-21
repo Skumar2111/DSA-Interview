@@ -29,7 +29,7 @@ public class GraphWork {
 
     public static void main(String[] args) {
 
-        int vertex = 5;
+        int vertex = 6;
         ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
 
         for(int i = 0 ; i < vertex ; i++)

@@ -9,7 +9,7 @@ public class GraphTraversal {
 
     public static void main(String[] args) {
 
-        int vertex = 5;
+        int vertex = 6;
 
         ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
 
@@ -19,10 +19,14 @@ public class GraphTraversal {
         }
 
 
-        addEdge(adjList,0,1);
-        addEdge(adjList,0,2);
-        addEdge(adjList,1,3);
-        addEdge(adjList,2,3);
+        addEdge(adjList, 1, 2);
+        addEdge(adjList, 1, 3);
+        addEdge(adjList, 2, 4);
+        addEdge(adjList, 2, 5);
+        addEdge(adjList, 3, 5);
+        addEdge(adjList, 4, 5);
+        addEdge(adjList, 4, 6);
+        addEdge(adjList, 5, 6);
 
 
         BFS(adjList,vertex);
