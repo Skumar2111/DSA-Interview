@@ -14,11 +14,11 @@ public class GraphWork {
 
     static void printGraph(ArrayList<ArrayList<Integer>> adj)
     {
-        for(int i = 0; i < adj.size(); i++)
+        for(int i = 1; i < adj.size(); i++)
         {
             System.out.println("Adjacency list of vertex : "+i);
 
-                for(int j = 0 ; j < adj.get(i).size(); j++)
+                for(int j = 1 ; j <= adj.get(i).size(); j++)
                 {
                     System.out.println("-> "+adj.get(i).get(j));
                 }
@@ -32,7 +32,7 @@ public class GraphWork {
         int vertex = 6;
         ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
 
-        for(int i = 0 ; i < vertex ; i++)
+        for(int i = 1 ; i <= vertex ; i++)
         {
             adjList.add(new ArrayList<>());
         }
