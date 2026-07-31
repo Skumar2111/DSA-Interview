@@ -3,9 +3,9 @@ package LogicBuilding;
 public class GCD {
 
     public static void main(String[] args) {
-        int a = 5 ; int b = 10;
+        int a = 98 ; int b = 56;
 
-        while(a != b)
+/*        while(a != b)
         {
             if( a > b)
             {
@@ -16,8 +16,19 @@ public class GCD {
                 b = b -a;
             }
 
+        }*/
+
+        System.out.println(gcd(a,b));
+
+    }
+
+    private static int gcd(int a, int b) {
+
+        if(b == 0)
+        {
+            return a;
         }
 
-        System.out.println(a);
+        return gcd(b, a %b);
     }
 }
