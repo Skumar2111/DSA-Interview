@@ -5,12 +5,16 @@ package Leetcodes;
  * https://leetcode.com/problems/valid-anagram/
  * */
 
+import java.util.Arrays;
+
 public class CheckAnagram {
 
     public static void main(String[] args) {
 
         String s = "anagram";
         String t = "nagaram";
+
+
 
         isAnagram(s,t);
     }
