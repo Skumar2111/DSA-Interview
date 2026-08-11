@@ -17,7 +17,6 @@ public class CountWays {
     }
 
     private static int countWays(int[] coins, int n, int sum) {
-        c = c+1;
         if(sum == 0)
         {
             return 1;
