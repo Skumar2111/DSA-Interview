@@ -47,10 +47,10 @@ public class TopKFrequent {
 
             PriorityQueue<Map.Entry<Integer, Integer>> pq =
                     new PriorityQueue<>(
-                            (a, b) -> b.getValue() - a.getValue()
+                            (a, b) -> a.getValue() - b.getValue()
                     );
 
-            int i = 0;
+
             // 3. Keep only k most frequent elements
             for (Map.Entry<Integer, Integer> entry : hmap.entrySet()) {
 
@@ -58,8 +58,10 @@ public class TopKFrequent {
 
                 if (pq.size() > k) {
 
-                    result[i] = pq.poll().getKey();
-                    i++;
+                    for(int i = 0 ; i < k ; i++) {
+                        result[i] = pq.poll().getKey();
+                    }
+
                 }
 
 
