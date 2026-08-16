@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
 public class TopKFrequent {
 
     public static void main(String[] args) {
-        int[] nums = {1,1,1,2,2,3};
+        int[] nums = {4,1,-1,2,-1,2,3};
         int k = 2;
 
         int[] res = new int[k];
@@ -47,7 +47,7 @@ public class TopKFrequent {
 
             PriorityQueue<Map.Entry<Integer, Integer>> pq =
                     new PriorityQueue<>(
-                            (a, b) -> a.getValue() - b.getValue()
+                            (a, b) -> b.getValue() - a.getValue()
                     );
 
 
@@ -61,6 +61,7 @@ public class TopKFrequent {
                     for(int i = 0 ; i < k ; i++) {
                         result[i] = pq.poll().getKey();
                     }
+                    return result;
 
                 }
 
