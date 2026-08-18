@@ -2,8 +2,8 @@ package SlidingWindow;
 
 public class LongestOnes {
     public static void main(String[] args) {
-        int[] nums = {};
-        longestOnes(nums,1);
+        int[] nums = {1,1,1,0,0,0,1,1,1,1,0};
+        longestOnes(nums,2);
     }
         public static int longestOnes(int[] nums, int k) {
             int start = 0;
