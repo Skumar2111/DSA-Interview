@@ -9,7 +9,7 @@ class LinkedList
        main() can access it */
     static class Node {
         int data;
-        Node next;
+        ReverseList.Node next;
         Node(int d) { data = d; next=null; } // Constructor 
     }
 
@@ -21,7 +21,7 @@ class LinkedList
         while (n != null)
         {
             System.out.print(n.data+" ");
-            n = n.next;
+           /* n = n.next;*/
         }
     }
 
@@ -35,9 +35,9 @@ class LinkedList
         Node second     = new Node(2);
         Node third     = new Node(3);
 
-        llist.head.next = second; // Link first node with the second node 
+       /* llist.head.next = second; // Link first node with the second node
         second.next = third; // Link first node with the second node 
-
+*/
         llist.printList();
     }
 }
