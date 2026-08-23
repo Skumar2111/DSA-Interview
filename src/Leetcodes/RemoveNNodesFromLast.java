@@ -11,7 +11,7 @@ public class RemoveNNodesFromLast {
 
 
 
-        removeNthFromEnd("pass head to the list");
+       /* removeNthFromEnd("pass head to the list");*/
     }
 
       public static class ListNode {
