@@ -46,7 +46,6 @@ public class ConcurrentBasics {
         }
 
 
-
         CompletableFuture<String> future1
                 = CompletableFuture.supplyAsync(() -> "Hello");
         CompletableFuture<String> future2
