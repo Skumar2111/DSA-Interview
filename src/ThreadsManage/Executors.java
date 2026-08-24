@@ -1,11 +1,12 @@
 package ThreadsManage;
 
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class Executors {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         var executors = java.util.concurrent.Executors.newSingleThreadExecutor();
 
@@ -23,6 +24,9 @@ public class Executors {
             }
         };
 
+        Semaphore semaphore = new Semaphore(2);
+
+        semaphore.acquire();
         Runnable runnable2 = () ->
         {
             for(int i = 50 ; i > 0 ; i--)
