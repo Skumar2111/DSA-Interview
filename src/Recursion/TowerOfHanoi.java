@@ -4,7 +4,7 @@ public class TowerOfHanoi {
 
     public static void main(String[] args) {
 
-        int n = 4;
+        int n = 3;
         int from=1,to=3,aux=2;
         printTOH(n,from,to,aux);
 
