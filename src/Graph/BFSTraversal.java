@@ -1,3 +1,7 @@
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class BFSTraversal
 {
 
@@ -37,7 +41,7 @@ visited[i] = false;
 
 }
 
-int source = 0 ;
+int source = 1 ;
 
 
  LinkedList<Integer> queue = new LinkedList<Integer>();
@@ -52,7 +56,7 @@ while(queue.size() != 0)
 
 source = queue.poll();
 
-System.out.println("source");
+System.out.println(source);
 
 for(int i = 0 ; i < adjList.get(source).size() ; i++)
 {
