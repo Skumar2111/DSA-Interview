@@ -57,6 +57,9 @@ public class ShortestPath {
             }
         }
 
+        List<List<Integer>> adjList = new ArrayList<>();
+        List<List<Integer>> adj = new ArrayList<Integer>();
+
 
 
 
