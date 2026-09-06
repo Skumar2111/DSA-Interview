@@ -35,7 +35,7 @@ public class DFSTraversal
         boolean[] visited = new boolean[adj.size()];
 
         ArrayList<Integer> result = new ArrayList<>();
-        dfsRec(adj, visited , 0 , result);
+        defRec(adj, visited , 0 , result);
 
         return result;
     }
@@ -50,7 +50,7 @@ public class DFSTraversal
         {
             if(!visited[i])
             {
-                dfsRec(adj,visited,i,res);
+                defRec(adj,visited,i,res);
             }
         }
      }
