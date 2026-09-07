@@ -1,5 +1,7 @@
 package Concurrency;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.concurrent.*;
 
 public class ConcurrentBasics {
@@ -14,6 +16,7 @@ public class ConcurrentBasics {
             return 10;
         });
 
+
         try {
             System.out.println(future.get());
         } catch (InterruptedException e) {
@@ -22,6 +25,13 @@ public class ConcurrentBasics {
             e.printStackTrace();
         }
 
+
+/*
+        Future<Integer> future1 = executorService.submit(
+                {
+                        System.out.println("Executing --- ")
+                }
+        );*/
 
         CompletableFuture<Integer> completableFuture = new CompletableFuture<>();
 
