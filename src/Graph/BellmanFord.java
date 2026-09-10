@@ -18,6 +18,8 @@ import java.util.Arrays;
 * temp[0] = -1;
 * return temp;
 * }
+*
+* V * E time complexity - graph has -ve cycle
 * */
 
 public class BellmanFord {
