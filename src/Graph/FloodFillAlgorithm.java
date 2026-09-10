@@ -4,8 +4,6 @@ public class FloodFillAlgorithm {
 
     public static void main(String[] args) {
 
-        int source_row = 3;
-        int source_column = 3;
         int[][] matrix = {{1,1,1},{2,2,0},{2,2,2}};
         int new_colour = 3;
         int initial_row = 2;
