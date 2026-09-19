@@ -15,9 +15,10 @@ public class SubSets {
 
         if(i == string.length())
         {
-            System.out.println(current);
+            System.out.println("-"+current);
             return;
         }
+
 
         generateSubSet(string,current,i+1);
         generateSubSet(string,current+string.charAt(i),i+1);
