@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 
-public class GraphBFS {
+public class ShortestDistance {
 
     public static void main(String[] args) {
 
@@ -44,27 +44,27 @@ public class GraphBFS {
 
         for(int i = 0 ; i < vertices ; i++)
         {
-            distance[i] = Integer.MIN_VALUE;
+            distance[i] = -1;
         }
 
         Queue<Integer> queue = new LinkedList<>();
         queue.add(source);
         visited[source] = true;
-        distance[source] = 1;
+        distance[source] = 0;
         while(!queue.isEmpty())
         {
-           int current = queue.poll();
+            int current = queue.poll();
             System.out.println(current);
-           for(int node : adjList.get(current))
-           {
-               if(!visited[node])
-               {
-                   distance[node] = distance[current] + 1;
-                   queue.add(node);
-                   visited[node] = true;
-               }
+            for(int node : adjList.get(current))
+            {
+                if(!visited[node])
+                {
+                    distance[node] = distance[current] + 1;
+                    queue.add(node);
+                    visited[node] = true;
+                }
 
-           }
+            }
 
 
         }
