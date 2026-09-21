@@ -10,8 +10,6 @@ public class Subsequence {
 
         String input = "qwerty";
 
-
-
         String ans = "";
         findSubsequence(input, ans);
 
@@ -19,18 +17,14 @@ public class Subsequence {
     }
 
     private static void findSubsequence(String input, String ans) {
-
         if(input.length() == 0)
         {
             strings.add(ans);
             return;
         }
-
         findSubsequence(input.substring(1),ans + input.charAt(0));
 
         findSubsequence(input.substring(1),ans);
 
     }
-
-
 }
