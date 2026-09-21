@@ -1,5 +1,13 @@
 package DP;
 
+/**
+ * Initiate checking from one end and try to identify the RR -
+ * if( m == 0 || n == 0)
+ * 1. If subsequence char matches at m-1 and n-1 if(string[m-1] == string[n-1] -> return 1 + LCS(m-1,n-1);
+ *2 . If doesn't match we will iterate it from one direction until it reaches at some char.
+ * Max Of - ( LCS(m-1,n) , LCS(n-1,m))
+ */
+
 public class StringSubsequence {
 
     public static void main(String[] args) {
