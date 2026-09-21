@@ -24,7 +24,7 @@ public class ShortestDistance {
         addEdge(adjList,2,3);
         addEdge(adjList,3,4);
 
-        DFS(adjList,0, vertices);
+        BFS(adjList,0, vertices);
     }
 
 
@@ -37,7 +37,7 @@ public class ShortestDistance {
 
 
 
-    private static void DFS(ArrayList<ArrayList<Integer>> adjList, int source , int vertices) {
+    private static void BFS(ArrayList<ArrayList<Integer>> adjList, int source , int vertices) {
 
         boolean[]  visited = new boolean[vertices];
         int[] distance = new int[vertices];
