@@ -25,6 +25,9 @@ public class MainThread {
        /* Thread custom = new MyCustom();
         custom.start();*/
 
+        Thread cusotmThread = new CustomThread();
+        cusotmThread.start();
+
 
         Runnable runnable = () -> {
             for(int i = 0 ; i < 100 ; i++)
@@ -45,6 +48,10 @@ public class MainThread {
         threadRunnable.start();
 
         threadRunnable.join();
+
+        threadRunnable.interrupt();
+
+
 
 
 
