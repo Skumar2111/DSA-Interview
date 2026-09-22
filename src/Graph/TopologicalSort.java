@@ -48,6 +48,7 @@ public class TopologicalSort
     public static void addEdge(ArrayList<ArrayList<Integer>> adj , int u , int v, int[] indegree)
     {
         adj.get(u).add(v);
+        indegree[v]++;
         
     }
 
