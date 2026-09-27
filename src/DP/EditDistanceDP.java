@@ -10,8 +10,8 @@ public class EditDistanceDP {
       /*  String input1 = "voldemort";
         String input2 = "dumbledore";*/
 
-        String input1 = "Saturday";
-        String input2 = "Sunday";
+        String input1 = "Satur";
+        String input2 = "Sun";
 
 
         int m = input1.length();

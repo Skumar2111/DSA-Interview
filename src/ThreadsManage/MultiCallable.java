@@ -9,6 +9,7 @@ public class MultiCallable {
     public static void main(String[] args) {
         var executors = Executors.newFixedThreadPool(3);
 
+        CountDownLatch countDownLatch = new CountDownLatch(2);
         List<Callable<Integer>> tasks = List.of(
                 () -> 10,
                 () -> 20,
@@ -16,6 +17,7 @@ public class MultiCallable {
                 () -> 40
         );
 
+        System.out.println("Countdown latch : "+countDownLatch.getCount());
 
         try {
             List<Future<Integer>> futureTasks = executors.invokeAll(tasks);
