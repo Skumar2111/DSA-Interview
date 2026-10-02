@@ -41,6 +41,7 @@ public class DijkstraWithPQ {
             adj.get(v).add(new Pair(u, weight));
         }
 
+
         PriorityQueue<Pair> priorityQueue = new PriorityQueue<>((a, b) -> a.weight - b.weight);
 
         int[] distance = new int[vertices];

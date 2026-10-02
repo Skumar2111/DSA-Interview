@@ -68,6 +68,21 @@ public class BellmanFord {
             }
         }
 
+
+
+        /* check for -ve cycle */
+        for(int[] edge : edges)
+        {
+            int u = edge[0];
+            int v = edge[1];
+            int weight = edge[2];
+
+            if(distance[u] != Integer.MAX_VALUE && distance[u] + weight < distance[v])
+            {
+                return; // is -ve cyclic graph
+            }
+        }
+
         System.out.println(Arrays.toString(distance));
     }
 }
