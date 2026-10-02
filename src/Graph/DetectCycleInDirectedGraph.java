@@ -58,7 +58,6 @@ public class DetectCycleInDirectedGraph
         while(!queue.isEmpty())
         {
             int u =  queue.pop();
-
             for(int v : adj.get(u))
             {
                 inDegree[v]--;
@@ -68,12 +67,8 @@ public class DetectCycleInDirectedGraph
 
                 }
             }
-
             count++;
-
         }
-
-
         return count!= vertices;
 
     }
