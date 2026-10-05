@@ -1,5 +1,6 @@
 package ThreadsManage;
 
+import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.Executors;
 
@@ -77,6 +78,31 @@ public class TestExecutors {
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
         }
+
+
+        List<Callable<Integer>> tasks = List.of(
+                () -> 10,
+                () -> 20,
+                () -> 30
+        );
+
+        try {
+            List<Future<Integer>> futures =
+                    executor.invokeAll(tasks);
+
+            for (Future<Integer> fut : futures) {
+                try {
+                    System.out.println(future.get());
+                } catch (ExecutionException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
         executor.shutdown();
 
 
