@@ -68,8 +68,6 @@ public class BellmanFord {
             }
         }
 
-
-
         /* check for -ve cycle */
         for(int[] edge : edges)
         {
