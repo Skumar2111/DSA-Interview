@@ -8,6 +8,7 @@ public class DijkstraWithPQ {
 
     public static void main(String[] args) {
 
+        // Edges source - > Target | source , target , Distance
         int[][] edges = {{0, 1, 2}, {0, 4, 1}, {4, 5, 4}, {4, 2, 2}, {1, 2, 3}, {2, 3, 6}, {5, 3, 1}};
         int e = edges.length;
         int vertices = 6;
@@ -51,7 +52,7 @@ public class DijkstraWithPQ {
         distance[source] = 0;
 
         priorityQueue.add(new Pair(source, 0));
-
+// Poll from priority queue and with relaxation made sure that shortest path is there in graph
         while (!priorityQueue.isEmpty()) {
             int dist = priorityQueue.peek().weight;
             int node = priorityQueue.peek().node;
