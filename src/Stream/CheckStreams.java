@@ -45,6 +45,13 @@ public class CheckStreams {
         System.out.println(predicate.test(true));
 
 
+        Consumer<List<Employees>> consumer = (list) -> list.stream().forEach(System.out::println);
+
+        consumer.accept(listEmployees);
+
+
+
+
 
 
 
