@@ -80,6 +80,7 @@ public class CheckStreams {
         // Intermediate returns other stream based on the operations
 
 
+
         // Trigger processing and produces the result
 
 
