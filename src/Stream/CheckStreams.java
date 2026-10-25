@@ -86,6 +86,8 @@ public class CheckStreams {
 
        newList.forEach(System.out::println);
 
+       listEmployees.stream().filter(a -> a.salary > 1000).forEach(System.out::println);
+
 
 
 
