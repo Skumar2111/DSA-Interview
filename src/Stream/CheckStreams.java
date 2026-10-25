@@ -88,6 +88,10 @@ public class CheckStreams {
 
        listEmployees.stream().filter(a -> a.salary > 1000).forEach(System.out::println);
 
+       int myNum = list.stream().min(Math::min).get();
+
+        System.out.println("My Number min ->" + myNum);
+
 
 
 
