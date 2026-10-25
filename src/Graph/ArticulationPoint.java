@@ -13,7 +13,6 @@ public class ArticulationPoint {
         int[] low = new int[V];
         boolean[] visited = new boolean[V];
         boolean[] isArticulation = new boolean[V];
-
         timer = 0;
 
         for (int i = 0; i < V; i++) {
