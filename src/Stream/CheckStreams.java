@@ -2,10 +2,7 @@ package Stream;
 
 import EmployeeManagement.Employee;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -79,10 +76,7 @@ public class CheckStreams {
 
         // Intermediate returns other stream based on the operations
 
-
-
         // Trigger processing and produces the result
-
 
        newList.forEach(System.out::println);
 
@@ -90,7 +84,24 @@ public class CheckStreams {
 
        int myNum = list.stream().min(Math::min).get();
 
-        System.out.println("My Number min ->" + myNum);
+
+       //listEmployees.stream().filter(employees -> employees.salary > 500).toList();
+
+        Map<Integer,List<Employees>> emp = listEmployees.stream().filter(employees -> employees.salary > 500).collect(Collectors.groupingBy(a-> a.id));
+
+        System.out.println(emp);
+
+        System.out.println(listEmployees.stream().count());
+
+        // anyMatch() , allMatch() , noneMatch();
+        // firstFind() , findAny();
+        //reduce();
+
+        System.out.print("My Number min ->" + myNum);
+
+
+
+
 
 
 
