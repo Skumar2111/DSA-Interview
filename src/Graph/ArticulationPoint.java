@@ -66,7 +66,6 @@ public class ArticulationPoint {
                 if (parent != -1 && low[neighbor] >= tin[node]) {
                     isArticulation[node] = true;
                 }
-
                 children++;
             }
         }
