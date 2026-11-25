@@ -23,15 +23,21 @@ public class Banking {
             e.printStackTrace();
         }
 
-        lock.lock();
-        try {
-            int originalBalance = balance;
+        //lock.lock();
 
-            balance += amount;
-            System.out.printf("Starting Balance: %d , Deposit %d , New Balance %d \n", originalBalance, amount, balance);
-        } finally {
-            lock.unlock();
+        if(lock.tryLock()) {
+            try {
+                int originalBalance = balance;
+
+                balance += amount;
+                System.out.printf("Starting Balance: %d , Deposit %d , New Balance %d \n", originalBalance, amount, balance);
+            }
+
+            finally {
+                lock.unlock();
+            }
         }
+
 
     }
 

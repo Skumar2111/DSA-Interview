@@ -1,5 +1,7 @@
 package CheckingJava;
 
+import java.util.concurrent.locks.StampedLock;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -12,6 +14,10 @@ public class Main {
 
         System.out.println(student.hashCode());
         System.out.println(student1.hashCode());
+
+        StampedLock stampedLock = new StampedLock();
+        stampedLock.tryOptimisticRead();
+        
 
     }
 

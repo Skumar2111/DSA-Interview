@@ -10,5 +10,7 @@ public class MainDeveloper {
         Employee.callStatic();
 
         developer.myInterface();
+
+
     }
 }
